@@ -178,15 +178,18 @@ INSERT INTO Team_Game_Stats VALUES('CRE', 'SJ@CRE', 23, 50, 10, 26, 17, 20, 26, 
 INSERT INTO Team_Game_Stats VALUES('CRE', 'CRE@SJ', 17, 53, 6, 22, 12, 18, 30, 12, 6, 3, 18, 19);
 INSERT INTO Team_Game_Stats VALUES('CRE', 'CRE@VIL', 29, 58, 7, 23, 11, 16, 39, 10, 3, 3, 8, 12);
 INSERT INTO Team_Game_Stats VALUES('CRE', 'VIL@CRE', 27, 65, 8, 27, 7, 12, 41, 16, 5, 1, 12, 15);
+--I still have to insert the rest of the games
 
 --Seton Hall
 INSERT INTO Team_Game_Stats VALUES('SET', 'SET@SJ', 22, 58, 5, 13, 11, 20, 41, 11, 8, 7, 13, 25);
 INSERT INTO Team_Game_Stats VALUES('SET', 'SJ@SET', 23, 56, 1, 11, 18, 27, 36, 8, 5, 4, 9, 17);
 INSERT INTO Team_Game_Stats VALUES('SET', 'VIL@SET', 21, 63, 3, 13, 11, 16, 35, 10, 7, 2, 9, 15);
 INSERT INTO Team_Game_Stats VALUES('SET', 'SET@VIL', 24, 56, 2, 17, 10, 11, 27, 9, 8, 0, 10, 18);
+--I still have to insert the rest of the games
 
 --UConn
 INSERT INTO Team_Game_Stats VALUES('CON', 'CON@SJ', 29, 53, 9, 19, 5, 12, 26, 14, 6, 6, 15, 23);
 INSERT INTO Team_Game_Stats VALUES('CON', 'SJ@CON', 28, 59, 7, 25, 9, 11, 41, 20, 6, 9, 5, 18);
 INSERT INTO Team_Game_Stats VALUES('CON', 'VIL@CON', 25, 61, 8, 22, 17, 22, 42, 17, 5, 1, 9, 18);
 INSERT INTO Team_Game_Stats VALUES('CON', 'CON@VIL', 28, 51, 6, 19, 11, 13, 37, 19, 3, 8, 14, 15);
+--I still have to insert the rest of the games
