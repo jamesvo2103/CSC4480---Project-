@@ -1,9 +1,9 @@
-DROP TABLE Team;
-DROP TABLE Coach;
-DROP TABLE Player;
-DROP TABLE Game;
-DROP TABLE Team_Game_Stats;
-DROP TABLE Big_East_Standings;
+DROP TABLE Team CASCADE CONSTRAINTS;
+DROP TABLE Coach CASCADE CONSTRAINTS;
+DROP TABLE Player CASCADE CONSTRAINTS;
+DROP TABLE Game CASCADE CONSTRAINTS;
+DROP TABLE Team_Game_Stats CASCADE CONSTRAINTS;
+DROP TABLE Big_East_Standings CASCADE CONSTRAINTS;
 
 --Teams
 CREATE TABLE Team(
@@ -30,10 +30,10 @@ CREATE TABLE Player(
     first_name varchar(20),
     last_name varchar(30),
     jersey_number varchar(2),
-    position varchar(2),
-    class_year varchar(4),
+    position varchar(20),
+    class_year varchar(20),
     height varchar(20),
-    weight varchar(3),
+    weight varchar(20),
     team_ID varchar(5), FOREIGN KEY(team_ID) REFERENCES Team(team_ID)
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE Game(
 --Stats
 CREATE TABLE Team_Game_Stats(
     team_ID varchar(5), FOREIGN KEY(team_ID) REFERENCES Team(team_ID),
-    game_ID varchar(5), FOREIGN KEY(game_ID) REFERENCES Game(game_ID),
+    game_ID varchar(7), FOREIGN KEY(game_ID) REFERENCES Game(game_ID),
     field_goals_made int,
     field_goals_attempted int,
     three_points_made int,
@@ -62,7 +62,8 @@ CREATE TABLE Team_Game_Stats(
     steals int,
     blocks int,
     turnovers int,
-    fouls int
+    fouls int,
+    PRIMARY KEY(team_ID, game_ID)
 );
 
 --Standings
