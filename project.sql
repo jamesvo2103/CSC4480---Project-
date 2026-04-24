@@ -135,19 +135,16 @@ INSERT INTO Game VALUES('CRE@SJ', '2026-02-21', 'SJ', 'CRE', 81, 52);
 INSERT INTO Game VALUES('SJ@CON', '2026-02-25', 'CON', 'SJ', 72, 40);
 INSERT INTO Game VALUES('VIL@SJ', '2026-02-28', 'SJ', 'VIL', 89, 57);
 INSERT INTO Game VALUES('SJ@SET', '2026-03-06', 'SET', 'SJ', 72, 65);
-
 INSERT INTO Game VALUES('VIL@SET', '2025-12-23', 'SET', 'VIL', 56, 64);
 INSERT INTO Game VALUES('CRE@VIL', '2026-01-07', 'VIL', 'CRE', 72, 76);
 INSERT INTO Game VALUES('VIL@CON', '2026-01-24', 'CON', 'VIL', 75, 67);
 INSERT INTO Game VALUES('SET@VIL', '2026-02-04', 'VIL', 'SET', 72, 60);
 INSERT INTO Game VALUES('VIL@CRE', '2026-02-14', 'CRE', 'VIL', 69, 80);
 INSERT INTO Game VALUES('CON@VIL', '2026-02-21', 'VIL', 'CON', 63, 73);
-
 INSERT INTO Game VALUES('CRE@SET', '2026-01-04', 'SET', 'CRE', 56, 54);
 INSERT INTO Game VALUES('CON@CRE', '2026-01-31', 'CRE', 'CON', 58, 85);
 INSERT INTO Game VALUES('SET@CRE', '2026-02-07', 'CRE', 'SET', 69, 68);
 INSERT INTO Game VALUES('CRE@CON', '2026-02-18', 'CON', 'CRE', 84, 91);
-
 INSERT INTO Game VALUES('CON@SET', '2026-01-13', 'SET', 'CON', 64, 69);
 INSERT INTO Game VALUES('SET@CON', '2026-02-28', 'CON', 'SET', 71, 67); 
 
@@ -178,18 +175,27 @@ INSERT INTO Team_Game_Stats VALUES('CRE', 'SJ@CRE', 23, 50, 10, 26, 17, 20, 26, 
 INSERT INTO Team_Game_Stats VALUES('CRE', 'CRE@SJ', 17, 53, 6, 22, 12, 18, 30, 12, 6, 3, 18, 19);
 INSERT INTO Team_Game_Stats VALUES('CRE', 'CRE@VIL', 29, 58, 7, 23, 11, 16, 39, 10, 3, 3, 8, 12);
 INSERT INTO Team_Game_Stats VALUES('CRE', 'VIL@CRE', 27, 65, 8, 27, 7, 12, 41, 16, 5, 1, 12, 15);
---I still have to insert the rest of the games
+INSERT INTO Team_Game_Stats VALUES('CRE', 'CRE@SET', 19, 55, 6, 27, 10, 16, 41, 11, 6, 2, 11, 17);
+INSERT INTO Team_Game_Stats VALUES('CRE', 'CON@CRE', 18, 44, 5, 21, 17, 24, 24, 10, 4, 2, 10, 13);
+INSERT INTO Team_Game_Stats VALUES('CRE', 'SET@CRE', 23, 53, 13, 30, 10, 12, 30, 14, 6, 5, 18, 12);
+INSERT INTO Team_Game_Stats VALUES('CRE', 'CRE@CON', 27, 55, 10, 21, 27, 32, 41, 10, 4, 2, 8, 15);
 
 --Seton Hall
 INSERT INTO Team_Game_Stats VALUES('SET', 'SET@SJ', 22, 58, 5, 13, 11, 20, 41, 11, 8, 7, 13, 25);
 INSERT INTO Team_Game_Stats VALUES('SET', 'SJ@SET', 23, 56, 1, 11, 18, 27, 36, 8, 5, 4, 9, 17);
 INSERT INTO Team_Game_Stats VALUES('SET', 'VIL@SET', 21, 63, 3, 13, 11, 16, 35, 10, 7, 2, 9, 15);
 INSERT INTO Team_Game_Stats VALUES('SET', 'SET@VIL', 24, 56, 2, 17, 10, 11, 27, 9, 8, 0, 10, 18);
---I still have to insert the rest of the games
+INSERT INTO Team_Game_Stats VALUES('SET', 'CRE@SET', 19, 53, 2, 7, 16, 19, 34, 11, 8, 5, 8, 15);
+INSERT INTO Team_Game_Stats VALUES('SET', 'SET@CRE', 27, 54, 5, 9, 9, 14, 30, 10, 9, 5, 14, 16);
+INSERT INTO Team_Game_Stats VALUES('SET', 'CON@SET', 24, 58, 1, 16, 15, 25, 37, 6, 8, 9, 14, 22);
+INSERT INTO Team_Game_Stats VALUES('SET', 'SET@CON', 25, 53, 9, 18, 8, 9, 27, 13, 10, 9, 15, 22);
 
 --UConn
 INSERT INTO Team_Game_Stats VALUES('CON', 'CON@SJ', 29, 53, 9, 19, 5, 12, 26, 14, 6, 6, 15, 23);
 INSERT INTO Team_Game_Stats VALUES('CON', 'SJ@CON', 28, 59, 7, 25, 9, 11, 41, 20, 6, 9, 5, 18);
 INSERT INTO Team_Game_Stats VALUES('CON', 'VIL@CON', 25, 61, 8, 22, 17, 22, 42, 17, 5, 1, 9, 18);
 INSERT INTO Team_Game_Stats VALUES('CON', 'CON@VIL', 28, 51, 6, 19, 11, 13, 37, 19, 3, 8, 14, 15);
---I still have to insert the rest of the games
+INSERT INTO Team_Game_Stats VALUES('CON', 'CON@CRE', 33, 61, 16, 31, 3, 7, 37, 16, 5, 2, 8, 21);
+INSERT INTO Team_Game_Stats VALUES('CON', 'CRE@CON', 31, 71, 11, 30, 11, 18, 35, 21, 7, 4, 5, 21);
+INSERT INTO Team_Game_Stats VALUES('CON', 'CON@SET', 25, 49, 3, 17, 16, 26, 34, 14, 8, 6, 17, 21);
+INSERT INTO Team_Game_Stats VALUES('CON', 'SET@CON', 21, 46, 9, 21, 20, 29, 30, 17, 9, 3, 15, 10);
