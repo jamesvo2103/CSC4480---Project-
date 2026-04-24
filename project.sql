@@ -76,6 +76,10 @@ CREATE TABLE Big_East_Standings(
     overall_losses int
 );
 
+
+--(C)RUD - CREATE SECTION
+
+
 --Teams
 INSERT INTO Team VALUES('SJ', 'St. Johns', 'Johnnies', 'New York', 'New York', 'Carnesecca Arena');
 INSERT INTO Team VALUES('VIL', 'Villanova', 'Wildcats', 'Villanova', 'Pennsylvania', 'Finneran Pavillion');
@@ -209,6 +213,10 @@ INSERT INTO Big_East_Standings VALUES('3', 'VIL', 15, 5, 24, 9);
 INSERT INTO Big_East_Standings VALUES('4', 'SET', 10, 10, 21, 12);
 INSERT INTO Big_East_Standings VALUES('5', 'CRE', 9, 11, 16, 18);
 
+
+--C(R)UD - READ SECTION
+
+
 -- =========================
 -- QUERY / RETRIEVAL TESTS
 -- =========================
@@ -277,3 +285,40 @@ FROM Big_East_Standings
 JOIN Team ON Big_East_Standings.team_ID = Team.team_ID
 WHERE Big_East_Standings.conference_wins > 3
 ORDER BY Big_East_Standings.conference_wins DESC;
+
+
+--CR(U)D - UPDATE SECTION
+
+
+-- UPDATE: Update an existing player's weight
+UPDATE Player
+SET weight = '185lb'
+WHERE player_ID = 'LEW55';
+
+-- Check that the update worked
+SELECT *
+FROM Player
+WHERE player_ID = 'LEW55';
+
+-- Restore the original weight so the real data stays correct
+UPDATE Player
+SET weight = '180lb'
+WHERE player_ID = 'LEW55';
+
+
+--CRU(D) - DELETE SECTION
+
+
+-- DELETE: Delete an existing player record
+DELETE FROM Player
+WHERE player_ID = 'FIS22';
+
+-- Check that the delete worked
+SELECT *
+FROM Player
+WHERE player_ID = 'FIS22';
+
+-- Restore the deleted player so the real data stays complete
+INSERT INTO Player
+VALUES('FIS22', 'Elijah', 'Fisher', '22', 'Guard', 'Senior', '6-6', '220lb', 'SET');
+
