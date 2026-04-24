@@ -67,7 +67,7 @@ CREATE TABLE Team_Game_Stats(
 
 --Standings
 CREATE TABLE Big_East_Standings(
-    standing int NOT NULL PRIMARY KEY,
+    standing varchar(2) NOT NULL PRIMARY KEY,
     team_ID varchar(5), FOREIGN KEY(team_ID) REFERENCES Team(team_ID),
     conference_wins int,
     conference_losses int,
@@ -199,3 +199,11 @@ INSERT INTO Team_Game_Stats VALUES('CON', 'CON@CRE', 33, 61, 16, 31, 3, 7, 37, 1
 INSERT INTO Team_Game_Stats VALUES('CON', 'CRE@CON', 31, 71, 11, 30, 11, 18, 35, 21, 7, 4, 5, 21);
 INSERT INTO Team_Game_Stats VALUES('CON', 'CON@SET', 25, 49, 3, 17, 16, 26, 34, 14, 8, 6, 17, 21);
 INSERT INTO Team_Game_Stats VALUES('CON', 'SET@CON', 21, 46, 9, 21, 20, 29, 30, 17, 9, 3, 15, 10);
+
+--Standings Table
+
+INSERT INTO Big_East_Standings VALUES('1', 'SJ', 18, 2, 30, 7);
+INSERT INTO Big_East_Standings VALUES('2', 'CON', 17, 3, 34, 6);
+INSERT INTO Big_East_Standings VALUES('3', 'VIL', 15, 5, 24, 9);
+INSERT INTO Big_East_Standings VALUES('4', 'SET', 10, 10, 21, 12);
+INSERT INTO Big_East_Standings VALUES('5', 'CRE', 9, 11, 16, 18);
