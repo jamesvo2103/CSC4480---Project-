@@ -221,31 +221,22 @@ INSERT INTO Big_East_Standings VALUES('5', 'CRE', 9, 11, 16, 18);
 -- QUERY / RETRIEVAL TESTS
 -- =========================
 
--- Query 1: Retrieve all teams
-SELECT *
-FROM Team;
 
-
--- Query 2: Retrieve all coaches with their team information
+-- Query 1: Retrieve all coaches with their team information
 SELECT Coach.first_name, Coach.last_name, Team.school_name, Team.team_name
 FROM Coach
 JOIN Team ON Coach.team_ID = Team.team_ID;
 
 
--- Query 3: Retrieve all players with their team information
+-- Query 2: Retrieve all players with their team information
 SELECT Player.first_name, Player.last_name, Player.jersey_number, Player.position,
        Player.class_year, Team.school_name, Team.team_name
 FROM Player
 JOIN Team ON Player.team_ID = Team.team_ID;
 
 
--- Query 4: Retrieve all games
-SELECT *
-FROM Game
-ORDER BY game_date;
 
-
--- Query 5: Retrieve the Big East standings with team names
+-- Query 3: Retrieve the Big East standings with team names
 SELECT Big_East_Standings.standing, Team.school_name, Team.team_name,
        Big_East_Standings.conference_wins, Big_East_Standings.conference_losses,
        Big_East_Standings.overall_wins, Big_East_Standings.overall_losses
@@ -254,31 +245,15 @@ JOIN Team ON Big_East_Standings.team_ID = Team.team_ID
 ORDER BY Big_East_Standings.standing;
 
 
--- Query 6: Retrieve all team game statistics
-SELECT *
-FROM Team_Game_Stats;
-
-
--- Query 7: Retrieve team game statistics with the school name
-SELECT Team.school_name, Team.team_name, Team_Game_Stats.game_ID,
-       Team_Game_Stats.field_goals_made, Team_Game_Stats.field_goals_attempted,
-       Team_Game_Stats.three_points_made, Team_Game_Stats.three_points_attempted,
-       Team_Game_Stats.rebounds, Team_Game_Stats.assists,
-       Team_Game_Stats.steals, Team_Game_Stats.blocks,
-       Team_Game_Stats.turnovers, Team_Game_Stats.fouls
-FROM Team_Game_Stats
-JOIN Team ON Team_Game_Stats.team_ID = Team.team_ID;
-
-
--- Query 8: Retrieve average home score for each team
-SELECT Team.school_name, Team.team_name, ROUND(AVG(Game.home_score), 2) AS average_home_score
+-- Query 4: Retrieve average home score for each team
+SELECT Team.school_name, Team.team_name, AVG(Game.home_score) AS average_home_score
 FROM Game
-JOIN Team ON Game.home_team = Team.team_ID
+JOIN Team ON Game.home team = Team.team_ID
 GROUP BY Team.school_name, Team.team_name
 ORDER BY average_home_score DESC;
 
 
--- Query 9: Retrieve teams with more than 3 conference wins
+-- Query 5: Retrieve teams with more than 3 conference wins
 SELECT Team.school_name, Team.team_name,
        Big_East_Standings.conference_wins, Big_East_Standings.conference_losses
 FROM Big_East_Standings
