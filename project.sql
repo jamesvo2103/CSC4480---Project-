@@ -253,12 +253,12 @@ GROUP BY Team.school_name, Team.team_name
 ORDER BY average_home_score DESC;
 
 
--- Query 5: Retrieve teams with more than 3 conference wins
+-- Query 5: Retrieve teams with more than 10 conference wins
 SELECT Team.school_name, Team.team_name,
        Big_East_Standings.conference_wins, Big_East_Standings.conference_losses
 FROM Big_East_Standings
 JOIN Team ON Big_East_Standings.team_ID = Team.team_ID
-WHERE Big_East_Standings.conference_wins > 3
+WHERE Big_East_Standings.conference_wins > 10
 ORDER BY Big_East_Standings.conference_wins DESC;
 
 
