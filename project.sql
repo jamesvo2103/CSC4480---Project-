@@ -280,20 +280,3 @@ UPDATE Player
 SET weight = '180lb'
 WHERE player_ID = 'LEW55';
 
-
---CRU(D) - DELETE SECTION
-
-
--- DELETE: Delete an existing player record
-DELETE FROM Player
-WHERE player_ID = 'FIS22';
-
--- Check that the delete worked
-SELECT *
-FROM Player
-WHERE player_ID = 'FIS22';
-
--- Restore the deleted player so the real data stays complete
-INSERT INTO Player
-VALUES('FIS22', 'Elijah', 'Fisher', '22', 'Guard', 'Senior', '6-6', '220lb', 'SET');
-
