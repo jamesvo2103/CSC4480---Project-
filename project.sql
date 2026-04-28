@@ -281,32 +281,64 @@ SET weight = '180lb'
 WHERE player_ID = 'LEW55';
 
 -- Adding percentage columns to the Team Table
-ALTER TABLE Team ADD field_goal_percentage NUMBER(5,2)
-ALTER TABLE Team ADD three_point_percentage NUMBER(5,2)
-ALTER TABLE Team ADD free_throw_percentage NUMBER(5,2)
+ALTER TABLE Team ADD field_goal_percentage NUMBER(5,2);
+ALTER TABLE Team ADD three_point_percentage NUMBER(5,2);
+ALTER TABLE Team ADD free_throw_percentage NUMBER(5,2);
+ALTER TABLE Team ADD true_shooting_percentage NUMBER(5,2);
 
 -- Putting data into the percentage columns
 
 --FG Percentage
 UPDATE Team T
 SET field_goal_percentage = (
-    SELECT (SUM(field_goals_made) / SUM(field_goals_attempted))
+    SELECT (SUM(field_goals_made) / SUM(field_goals_attempted)) * 100
     FROM Team_Game_Stats TGS
     WHERE TGS.team_ID = T.team_ID
 );
 
+-- Three Point Percentage
 UPDATE Team T
 SET three_point_percentage = (
-    SELECT (SUM(three_pointers_made) / SUM(three_pointers_attempted))
+    SELECT (SUM(three_points_made) / SUM(three_points_attempted)) * 100
     FROM Team_Game_Stats TGS
     WHERE TGS.team_ID = T.team_ID
 );
 
-
+-- Free Throw Percentage
 UPDATE Team T
 SET free_throw_percentage = (
-    SELECT (SUM(free_throws_made) / SUM(free_throws_attempted))
+    SELECT (SUM(free_throws_made) / SUM(free_throws_attempted)) * 100
     FROM Team_Game_Stats TGS
     WHERE TGS.team_ID = T.team_ID
 );
 
+-- True Shooting Percentage
+UPDATE Team T
+SET true_shooting_percentage = (
+
+    SELECT ((SUM(field_goals_made)+SUM(three_points_made)+SUM(free_throws_made))/
+    (SUM(field_goals_attempted)+SUM(three_points_attempted)+SUM(free_throws_attempted)))*100
+    
+    FROM Team_Game_Stats TGS
+    WHERE TGS.team_ID = T.team_ID
+);
+
+-- Rank teams by field goal percentage
+SELECT field_goal_percentage, school_name, team_name, team_ID
+FROM Team
+ORDER BY field_goal_percentage DESC;
+
+--Rank teams by 3 point percentages
+SELECT three_point_percentage, school_name, team_name, team_ID
+From Team
+ORDER BY three_point_percentage DESC;
+
+--Rank teams by free throw percentage
+SELECT free_throw_percentage, school_name, team_name, team_ID
+FROM Team
+ORDER BY free_throw_percentage DESC;
+
+--Rank teams by true shooting percentage
+SELECT true_shooting_percentage, school_name, team_name, team_ID
+FROM Team
+ORDER BY true_shooting_percentage DESC;
