@@ -280,3 +280,33 @@ UPDATE Player
 SET weight = '180lb'
 WHERE player_ID = 'LEW55';
 
+-- Adding percentage columns to the Team Table
+ALTER TABLE Team ADD field_goal_percentage NUMBER(5,2)
+ALTER TABLE Team ADD three_point_percentage NUMBER(5,2)
+ALTER TABLE Team ADD free_throw_percentage NUMBER(5,2)
+
+-- Putting data into the percentage columns
+
+--FG Percentage
+UPDATE Team T
+SET field_goal_percentage = (
+    SELECT (SUM(field_goals_made) / SUM(field_goals_attempted))
+    FROM Team_Game_Stats TGS
+    WHERE TGS.team_ID = T.team_ID
+);
+
+UPDATE Team T
+SET three_point_percentage = (
+    SELECT (SUM(three_pointers_made) / SUM(three_pointers_attempted))
+    FROM Team_Game_Stats TGS
+    WHERE TGS.team_ID = T.team_ID
+);
+
+
+UPDATE Team T
+SET free_throw_percentage = (
+    SELECT (SUM(free_throws_made) / SUM(free_throws_attempted))
+    FROM Team_Game_Stats TGS
+    WHERE TGS.team_ID = T.team_ID
+);
+
